@@ -26,6 +26,26 @@ public class RoleDaoImpl implements RoleDao {
 
     @SuppressWarnings("unchecked")
     @Override
+    public List<RoleEntity> getAll() {
+        LOGGER.info("------getRole START--------------");
+        StringBuilder sql = new StringBuilder();
+        sql.append(" SELECT r");
+        sql.append(" FROM ");
+        sql.append("    RoleEntity r ");
+        Query query = this.entityManager.createQuery(sql.toString());
+        List<RoleEntity> roles = null;
+        try {
+            roles = query.getResultList();
+        } catch (NoResultException e) {
+            LOGGER.error("------getRole No Result--------------");
+            return null;
+        }
+        LOGGER.info("------getRole END--------------");
+        return roles;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
     public List<RoleEntity> getUserRole(Integer id) {
         LOGGER.info("------getUserRole START--------------");
         StringBuilder sql = new StringBuilder();

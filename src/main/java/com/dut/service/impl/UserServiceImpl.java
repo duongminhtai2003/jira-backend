@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import com.dut.bean.ResultBean;
 import com.dut.constant.Constant;
 import com.dut.constant.MessageUtils;
-import com.dut.controller.UserController;
 import com.dut.dao.PermissionDao;
 import com.dut.dao.RoleDao;
 import com.dut.dao.UserDao;
