@@ -12,6 +12,8 @@ public interface UserDao {
 
     public List<UserEntity> getAll();
 
+    public boolean checkUsername(String username);
+
     public void createUser(UserEntity userEntity);
 
     public void updateUser(UserEntity userEntity);

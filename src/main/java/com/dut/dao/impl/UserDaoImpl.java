@@ -102,4 +102,23 @@ public class UserDaoImpl implements UserDao {
         LOGGER.info("------getUserByUserName END--------------");
         return userEntity;
     }
+
+    @Override
+    public boolean checkUsername(String username) {
+        LOGGER.info("------checkUsername START--------------");
+        StringBuilder sql = new StringBuilder();
+        sql.append(" SELECT u");
+        sql.append(" FROM ");
+        sql.append("    UserEntity u ");
+        sql.append(" WHERE ");
+        sql.append("    u.username = :username ");
+        Query query = this.entityManager.createQuery(sql.toString());
+        query.setParameter("username", username);
+        if (query.getResultList().isEmpty()) {
+            return true;
+        }
+        LOGGER.info("------checkUsername END--------------");
+        return false;
+    }
+
 }
